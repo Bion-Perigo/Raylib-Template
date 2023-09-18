@@ -396,3 +396,16 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+GameName/Binaries
+GameName/Intermediate
+GameName/App.bat
+GameName/.vs
+GameName/*.sln
+GameName/*.Makefile
+
+
+
+
+
+
