@@ -10,6 +10,19 @@ function LinkLibraries()
     --links { 'lib.a' }
 end
 
+function LinkRaylib()
+    includedirs('Source/ThirdParty/Raylib')
+    includedirs('Source/ThirdParty/Raylib/external/glfw/include/')
+
+    defines {'PLATFORM_DESKTOP'}
+    defines {'_CRT_SECURE_NO_WARNINGS'}
+    links {"pthread", "GL", "m", "dl", "rt", "X11"}
+
+    files {'Source/ThirdParty/Raylib/*.h', 'Source/ThirdParty/Raylib/*.c'}
+    vpaths {["Source/ThirdParty/Raylib"] = {'Source/ThirdParty/Raylib/*.h', 'Source/ThirdParty/Raylib/*.c'}}
+
+end
+
 workspace(WorkspaceName)
 
     configurations {'Debug', 'Release'}
@@ -17,10 +30,10 @@ workspace(WorkspaceName)
     defaultplatform ('x64')
 
 project(ProjectName).group = "Application"
-
+    
     kind      ('ConsoleApp')
     language  ('C++')
-    location  ('Intermediate/ProjectFiles')
+    --location  ('Intermediate/ProjectFiles')
     targetdir ('Binaries/%{cfg.platform}/%{cfg.buildcfg}')
     objdir    ("Intermediate/Build/%{cfg.platform}/%{cfg.buildcfg}")
 
@@ -55,6 +68,7 @@ project(ProjectName).group = "Application"
         defines {'CONFIG_PATH='  .. ConfigPath}
         optimize 'Off'
         symbols  'On'
+        postbuildcommands { "Binaries/%{cfg.platform}/%{cfg.buildcfg}/%{ProjectName}" }
     
     filter {'configurations:Release'}
         defines { 'RELEASE_MODE' }
@@ -62,6 +76,7 @@ project(ProjectName).group = "Application"
         defines {'CONFIG_PATH=AppData/Config/'}
         optimize 'On'
         symbols  'Off'
+        
 
         ContentFrom       = path.getabsolute("Content")
         ConfigFrom   = path.getabsolute("Config")
@@ -86,6 +101,7 @@ project(ProjectName).group = "Application"
         defines { 'PLATFORM_LINUX' }
         cppdialect 'gnu++17'
         LinkLibraries()
+        LinkRaylib()
 
     filter {}
 
@@ -94,7 +110,7 @@ project(ProjectName).group = "Application"
     PROGRAMSPATH = path.getabsolute('Programs')
 
     prebuildmessage ('Start Project Update.')
-    prebuildcommands { "../../App.sh" }
+    prebuildcommands { "./App.sh" }
 
 newaction {
     trigger     = "GeneratorGMake2",

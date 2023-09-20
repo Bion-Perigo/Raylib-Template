@@ -6,10 +6,18 @@ Template to generate a project using Raylib. Windows/Linux. (C/C++)
 2 - Go to "Programs/Premake5" and run the generator of your choice "/Vs2017/2019/2020.bat" or on Linux "GMake2.sh".  
 
 # Commands for compilation and execution
-./App.bat/sh make  
-./App.bat/sh run  
-./App.bat/sh "make config-release_x64"  
-./App.bat/sh "run config-release_x64"  
+./App.bat // Update Project  
+./App.bat make  
+./App.bat run  
+./App.bat "make config-release_x64"  
+./App.bat "run config-release_x64"  
+  
+# Linux
+./App.sh // Update Project  
+make  
+make clean  
+Please, when using on Linux, install the necessary libraries following the instructions on Raylib's GitHub!  
+Link -> https://github.com/raysan5/raylib  
   
 # Note
 Whenever you add a new file, you need to update the project, running App.* at the root of the project or compiling it.  
