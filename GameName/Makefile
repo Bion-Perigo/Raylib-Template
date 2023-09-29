@@ -1,5 +1,5 @@
-CC = gcc
-CCPP = g++
+CC = clang
+CCPP = clang++
 GAME_NAME = $(notdir $(CURDIR))
 
 BUILD_DIR    = build
@@ -15,10 +15,10 @@ RAYLIB       = raylib
 CODE         = code
 
 INCLUDE  = -I$(CODE) -I$(CODE)/include -I$(RAYLIB) -I$(RAYLIB)/external/glfw/include
-DEFINES  = -D GAME_NAME=$(GAME_NAME) -D PLATFORM_DESKTOP -D _CRT_SECURE_NO_WARNINGS
+DEFINES  = -D GAME_NAME=$(GAME_NAME) -D PLATFORM_DESKTOP -D _CRT_SECURE_NO_WARNINGS -D _WINSOCK_DEPRECATED_NO_WARNINGS -D_CR_NO_SECURE_WARNINGS
 FLAGS    =
 LIBS     = 
-CFLAGS   =
+CFLAGS   = -Wall
 CPPFLAGS = 
 CL_CCJ   = 
 CL_JASON =
@@ -37,19 +37,19 @@ CL_JASON = -MJ $@.json
 endif
 
 ifeq ($(OS), Windows_NT)
-DEFINES += -DPLATFORM_WINDOWS -D_WIN32 
+DEFINES += -DPLATFORM_WINDOWS
 PLATFORM_DIR = $(WINDOWS)
 EXTENCION    = .exe
 LIBS         += -lwinmm -lkernel32 -luser32 -lgdi32 -lopengl32 -lshell32
 CFLAGS       += -std=c99
 CPPFLAGS     += -std=c++17
 else
-DEFINES += -DPLATFORM_LINUX -D_GNU_SOURCE
+DEFINES += -DPLATFORM_LINUX
 PLATFORM_DIR = $(LINUX)
 EXTENCION    = 
-LIBS         +=
-CFLAGS       += -std=gnuc99
-CPPFLAGS     += -std=gnuc++17
+LIBS         += -lpthread -lGL -lm -ldl -lrt -lX11
+CFLAGS       += -std=gnu99
+CPPFLAGS     += -std=gnu++17
 endif
 
 config = $(DEBUG)

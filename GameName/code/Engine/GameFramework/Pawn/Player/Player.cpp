@@ -18,10 +18,10 @@ void APlayer::BeginPlayer()
 
 void APlayer::Tick(float DeltaTime)
 {
-    if(IsGamepadButtonDown(0,GAMEPAD_BUTTON_LEFT_FACE_UP)) m_location.y -= (m_speed * DeltaTime);
-    if(IsGamepadButtonDown(0,GAMEPAD_BUTTON_LEFT_FACE_DOWN)) m_location.y += (m_speed * DeltaTime);
-    if(IsGamepadButtonDown(0,GAMEPAD_BUTTON_LEFT_FACE_LEFT)) m_location.x -= (m_speed * DeltaTime);
-    if(IsGamepadButtonDown(0,GAMEPAD_BUTTON_LEFT_FACE_RIGHT)) m_location.x += (m_speed * DeltaTime);
+    if(IsKeyDown(KEY_W)) m_location.y -= (m_speed * DeltaTime);
+    if(IsKeyDown(KEY_S)) m_location.y += (m_speed * DeltaTime);
+    if(IsKeyDown(KEY_A)) m_location.x -= (m_speed * DeltaTime);
+    if(IsKeyDown(KEY_D)) m_location.x += (m_speed * DeltaTime);
 
     DrawTextureV(m_sprite, m_location, WHITE);
 }

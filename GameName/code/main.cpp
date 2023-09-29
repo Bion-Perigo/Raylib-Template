@@ -21,7 +21,6 @@ int main() {
     DrawFPS(100, 100);
     DrawText("Raylib-Template", 300, 300, 20, YELLOW);
 
-    DrawText("My Text", 200, 200, 20, DARKBLUE);
     EndDrawing();
   }
 
