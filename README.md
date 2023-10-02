@@ -13,9 +13,9 @@ Extension Makefile Tools
 Extension C/C++  
 
 # Windows 
-W64devkit for Windows-> https://www.mingw-w64.org/downloads/  @Required: The "w64devkit\bin" folder must be in the system path
+W64devkit for Windows-> https://www.mingw-w64.org/downloads/  @Required: The "w64devkit\bin" folder must be in the system path  
 Clang for Windows-> https://releases.llvm.org/download.html  @To use Vim/Neovim  
-Vs Build Tools or Visual Studio (Desktop C/C++)-> https://visualstudio.microsoft.com/pt-br/downloads/ @To use Vim/Neovim
+Vs Build Tools or Visual Studio (Desktop C/C++)-> https://visualstudio.microsoft.com/pt-br/downloads/ @To use Vim/Neovim  
 
 # Linux Libs
 Requires gcc/g++ or clang/clang++ => @To use Vim/Neovim
