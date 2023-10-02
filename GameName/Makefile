@@ -1,5 +1,5 @@
-CC = clang
-CCPP = clang++
+CC = gcc
+CCPP = g++
 GAME_NAME = $(notdir $(CURDIR))
 
 BUILD_DIR    = build
@@ -21,7 +21,7 @@ LIBS     =
 CFLAGS   = 
 CPPFLAGS = 
 CL_CCJ   = 
-CL_JASON =
+CL_JSON =
 
 PLATFORM_DIR = 
 CONFIG_DIR =
@@ -33,7 +33,7 @@ COPY_CONFIG =
 
 ifeq ($(CC), clang)
 CL_CCJ   = @sed -e '1s/^/[\n''/' -e '$$s/,$$/\n'']/' $(OBJ_JSON) > compile_commands.json
-CL_JASON = -MJ $@.json
+CL_JSON = -MJ $@.json
 endif
 
 ifeq ($(OS), Windows_NT)
@@ -117,40 +117,40 @@ $(GAME_NAME): $(OBJ) $(OBJ_CPP)
 
 $(OBJ_DIR)%.o: $(RAYLIB)/%.c
 	@echo Compiling:$<...
-	@$(CC) $(CL_JASON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/%.c
 	@echo Compiling:$<...
-	@$(CC) $(CL_JASON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/%.c
 	@echo Compiling:$<...
-	@$(CC) $(CL_JASON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/*/%.c
 	@echo Compiling:$<...
-	@$(CC) $(CL_JASON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/*/*/%.c
 	@echo Compiling:$<...
-	@$(CC) $(CL_JASON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/%.cpp
 	@echo Compiling:$<...
-	@$(CCPP) $(CL_JASON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CCPP) $(CL_JSON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/%.cpp
 	@echo Compiling:$<...
-	@$(CCPP) $(CL_JASON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CCPP) $(CL_JSON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/*/%.cpp
 	@echo Compiling:$<...
-	@$(CCPP) $(CL_JASON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CCPP) $(CL_JSON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/*/*/%.cpp
 	@echo Compiling:$<...
-	@$(CCPP) $(CL_JASON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CCPP) $(CL_JSON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/*/*/*/%.cpp
 	@echo Compiling:$<...
-	@$(CCPP) $(CL_JASON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+	@$(CCPP) $(CL_JSON) $< $(FLAGS) $(CPPFLAGS) $(INCLUDE) $(DEFINES) -c -o $@

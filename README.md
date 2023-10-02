@@ -9,20 +9,21 @@ make config=release
 make run config=release @The part about searching for assets and configs doesn't work correctly. Do not use!  
 
 # Windows 
-W64devkit for Windows -> https://www.mingw-w64.org/downloads/  
-Clang for Windows------> https://releases.llvm.org/download.html  @To use Vim/Neovim
+W64devkit for Windows-----------> https://www.mingw-w64.org/downloads/  
+Clang for Windows----------------> https://releases.llvm.org/download.html  @To use Vim/Neovim
+Vs Build Tools or Visual Studio-> https://visualstudio.microsoft.com/pt-br/downloads/
 
 # Linux Libs
 Requires gcc/g++ or clang/clang++ => @To use Vim/Neovim
 
 Ubunto  
-{sudo apt install libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev}  
+{{sudo apt install libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev}}  
   
 Fedora  
-{sudo dnf install alsa-lib-devel mesa-libGL-devel libX11-devel libXrandr-devel libXi-devel libXcursor-devel libXinerama-devel libatomic}  
+{{sudo dnf install alsa-lib-devel mesa-libGL-devel libX11-devel libXrandr-devel libXi-devel libXcursor-devel libXinerama-devel libatomic}}  
   
 Arch Linux  
-{sudo pacman -S alsa-lib mesa libx11 libxrandr libxi libxcursor libxinerama}  
+{{sudo pacman -S alsa-lib mesa libx11 libxrandr libxi libxcursor libxinerama}}  
 
 # Macros
 DEBUG_MODE   = In Debug mode  
