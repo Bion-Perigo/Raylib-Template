@@ -56,7 +56,7 @@ config = $(DEBUG)
 
 ifeq ($(config), $(DEBUG))
 DEFINES += -D DEBUG_MODE
-FLAGS   += -g
+FLAGS   += -g 
 CONFIG_DIR = $(DEBUG)
 DEFINES += -D"CONTENT_PATH=$(abspath $(CONTENT_PATH)/)/"
 DEFINES += -D"CONFIG_PATH=$(abspath $(CONFIG_PATH)/)/"
