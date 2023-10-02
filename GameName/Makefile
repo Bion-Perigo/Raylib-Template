@@ -12,9 +12,10 @@ LINUX        = linux
 DEBUG        = debug
 RELEASE      = release
 RAYLIB       = raylib
-CODE         = code
+CODE         = source
+INCLUDE_PATH = include
 
-INCLUDE  = -I$(CODE) -I$(CODE)/include -I$(RAYLIB) -I$(RAYLIB)/external/glfw/include
+INCLUDE  = -I$(CODE) -I$(CODE)/$(INCLUDE_PATH) -I$(RAYLIB) -I$(RAYLIB)/external/glfw/include
 DEFINES  = -D GAME_NAME=$(GAME_NAME) -D PLATFORM_DESKTOP -D _CRT_SECURE_NO_WARNINGS -D _WINSOCK_DEPRECATED_NO_WARNINGS -D_CR_NO_SECURE_WARNINGS
 FLAGS    =
 LIBS     = 
@@ -106,6 +107,7 @@ generate:
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(CONTENT_PATH)
 	@mkdir -p $(CONFIG_PATH)
+	@mkdir -p $(CODE)/$(INCLUDE_PATH)
 
 $(GAME_NAME): $(OBJ) $(OBJ_CPP)
 	@$(CCPP) $(OBJ) $(OBJ_CPP) $(DEFINES) $(CPPFLAGS) $(INCLUDE) $(LIBS)   -o $(TARGET_DIR)/$(GAME_NAME)$(EXTENCION)
