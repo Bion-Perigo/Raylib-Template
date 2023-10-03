@@ -1,5 +1,5 @@
-CC = gcc
-CCPP = g++
+CC = clang
+CCPP = clang++
 GAME_NAME = $(notdir $(CURDIR))
 
 BUILD_DIR    = build
