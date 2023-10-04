@@ -34,7 +34,9 @@ DEBUG_MODE   = In Debug mode
 RELEASE_MODE = In Release mode  
 CONFIG_PATH  = Path to configuration folder  
 CONTENT_PATH = Path to Assets folder  
-GAME_NAME    = Game Name  
+GAME_NAME    = Game Name    
+PLATFORM_WINDOWS = Current platform Windows  
+PLATFORM_LINUX   = Current platform Linux  
   
 Note: To use macros it is necessary to convert to a string, an example of this in main.cpp  
 Bug: when using visual studio code, sometimes a file is generated in the root folder like std=c++17, -g but it doesn't interfere with use at all.  
