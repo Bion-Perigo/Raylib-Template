@@ -78,7 +78,7 @@ OBJ_DIR = $(BUILD_DIR)/$(OBJECT)/$(PLATFORM_DIR)/$(CONFIG_DIR)/
 
 # JSON
 # C
-SRC = $(wildcard $(RAYLIB)/*.c) $(wildcard $(CODE)/*.c) $(wildcard $(CODE)/*/*.c) $(wildcard $(CODE)/*/*/*.c) $(wildcard $(CODE)/*/*/*/*.c) 
+SRC = $(wildcard $(RAYLIB)/*.c) $(wildcard $(CODE)/*.c) $(wildcard $(CODE)/*/*.c) $(wildcard $(CODE)/*/*/*.c) $(wildcard $(CODE)/*/*/*/*.c) $(wildcard $(CODE)/*/*/*/*/*.c) 
 OBJ = $(addprefix $(OBJ_DIR),$(notdir $(SRC:.c=.o))) 
 
 # CPP
@@ -134,6 +134,10 @@ $(OBJ_DIR)%.o: $(CODE)/*/*/%.c
 	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
 $(OBJ_DIR)%.o: $(CODE)/*/*/*/%.c
+	@echo Compiling:$<...
+	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
+
+$(OBJ_DIR)%.o: $(CODE)/*/*/*/*/%.c
 	@echo Compiling:$<...
 	@$(CC) $(CL_JSON) $< $(FLAGS) $(CFLAGS) $(INCLUDE) $(DEFINES) -c -o $@
 
